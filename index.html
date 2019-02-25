@@ -24,7 +24,7 @@ function readBody(xhr) {
 csrf(token);
     return data;
 }
-function test(token) {
+function test() {
 	var xhrtest = new XMLHttpRequest();
 	xhrtest.open('GET', 'http://31.220.42.253', true);
 	xhrtest.send(null);
